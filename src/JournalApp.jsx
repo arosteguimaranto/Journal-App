@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import {createRoot} from 'react-dom/client'
+
+import { AppRouter } from './router/AppRouter'
 
 
 
@@ -6,11 +8,8 @@ function JournalApp() {
 //  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-      <h1> Hola Mundo</h1>
-      </div>
-       
+    <div>  
+    <AppRouter/>
     </div>
   )
 }
