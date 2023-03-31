@@ -1,16 +1,17 @@
 
 
-import { AppRouter } from './router/AppRouter'
+import { AppRouter } from './router/AppRouter';
+import { AppTheme } from './theme';
 
 
 
 function JournalApp() {
-//  const [count, setCount] = useState(0)
+
 
   return (
-    <div>  
+    <AppTheme>  
     <AppRouter/>
-    </div>
+    </AppTheme>
   )
 }
 
