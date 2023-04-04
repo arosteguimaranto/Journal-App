@@ -5,13 +5,13 @@ import { AuthLayout } from '../layout/AuthLayout';
 
 export const LoginPage = () => {
   return (
-    <AuthLayout title='Login' >
+    <AuthLayout title='Acceder' >
     <form>
     <Grid container>
       <Grid item xs={12} sx={{ mt: 2 }}>
 
         <TextField
-          label="Email"
+          label="Correo Electronico"
           type="email"
           placeholder='correo@google.com'
           fullWidth
@@ -20,7 +20,7 @@ export const LoginPage = () => {
 
       <Grid item xs={12} sx={{ mt: 2 }}>
         <TextField
-          label="Password"
+          label="Contraseña"
           type="password"
           placeholder='password'
           fullWidth
@@ -32,7 +32,7 @@ export const LoginPage = () => {
         spacing={2} sx={{ mb: 2, mt: 1 }}>
         <Grid item xs={12} sm={6}>
           <Button variant='contained' fullWidth>
-            Login
+            Iniciar Sesión
           </Button>
         </Grid>
 

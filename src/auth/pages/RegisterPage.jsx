@@ -5,7 +5,7 @@ import { AuthLayout } from '../layout/AuthLayout';
 
 export const RegisterPage = () => {
   return (
-    <AuthLayout title='Register' >
+    <AuthLayout title='Regístrate' >
 
     <form>
 
@@ -13,7 +13,7 @@ export const RegisterPage = () => {
       <Grid item xs={12} sx={{ mt: 2 }}>
 
         <TextField
-          label="Name"
+          label="Nombre"
           type="text"
           placeholder='Arostegui Maranto'
           fullWidth
@@ -22,7 +22,7 @@ export const RegisterPage = () => {
 
       <Grid item xs={12} sx={{ mt: 2 }}>
         <TextField
-          label="Email"
+          label="Correo Electronico"
           type="email"
           placeholder='Arostegui@correo.com'
           fullWidth
@@ -31,7 +31,7 @@ export const RegisterPage = () => {
 
       <Grid item xs={12} sx={{ mt: 2 }}>
         <TextField
-          label="Password"
+          label="Contraseña"
           type="password"
           placeholder='password'
           fullWidth
@@ -57,7 +57,7 @@ export const RegisterPage = () => {
       <Grid container direction='row' justifyContent='end'>
       <Typography sx={{mr:1}} >¿Ya tienes cuenta?</Typography>
         <Link component={RouterLink} color='inherit' to="/auth/login"> 
-        Ingresar 
+        Ingresar
         </Link>
 
       </Grid>
