@@ -11,8 +11,8 @@ const formData = {
 
 const formValidations = {
   email:[(value) => value.includes('@'), 'El correo debe de tener una @'],
-  password:[(value) => value.lenght <= 6, 'El correo debe tener mas de 8 caracteres'],
-  displayName:[(value) => value.lenght >= 1, 'El nombre es obligatorio'],
+  password:[(value) => value.length <= 6, 'El correo debe tener mas de 8 caracteres'],
+  displayName:[(value) => value.length >= 1, 'El nombre es obligatorio'],
 }
 
 
