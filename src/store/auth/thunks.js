@@ -30,7 +30,10 @@ export const startCreatingUserWithEmailPassword = ({ email, password, displayNam
         if(!ok) return dispatch(logout({errorMessage}))
 
         dispatch(login({uid, displayName, email, photoURL}));
-        
-        
+         
     }
+}
+
+export const startLoginWithEmailPassword = () =>{
+    
 }

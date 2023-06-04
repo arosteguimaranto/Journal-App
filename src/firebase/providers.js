@@ -48,6 +48,9 @@ export const registerUserWithEmailPassword = async ({ email, password, displayNa
         return { ok: false, errorMessage: error.message }
 
     }
+}
 
+export const LoginWithEmailPassword = ()=>{
 
+    //! signInWithEmailAndPassowrd
 }
