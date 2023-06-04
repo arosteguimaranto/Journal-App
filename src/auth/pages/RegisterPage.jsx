@@ -1,9 +1,9 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { Button, Grid, TextField, Typography, Link } from '@mui/material'
+import { Button, Grid, TextField, Typography, Link, Alert } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
-import {useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useMemo, useState } from 'react';
 import { startCreatingUserWithEmailPassword } from '../../store/auth';
 
 
@@ -25,7 +25,10 @@ export const RegisterPage = () => {
 
   const dispatch = useDispatch();
 
-  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const { status, errorMessage } = useSelector(state => state.auth);
+  const isCheckingAuthentication = useMemo(() => status === 'checking', [status]);
 
   const {
     formState, displayName, email, password, onInputChange,
@@ -36,16 +39,16 @@ export const RegisterPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-   setFormSubmitted(true);
+    setFormSubmitted(true);
 
-    if(!isFormValid) return;
+    if (!isFormValid) return;
 
-    dispatch(startCreatingUserWithEmailPassword (formState));
+    dispatch(startCreatingUserWithEmailPassword(formState));
   }
 
   return (
     <AuthLayout title='Regístrate' >
-     
+
       <form onSubmit={onSubmit}>
 
         <Grid container>
@@ -67,7 +70,7 @@ export const RegisterPage = () => {
 
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
-              label="Correo Electronico"
+              label="Correo Electrónico"
               type="email"
               placeholder='Arostegui@correo.com'
               fullWidth
@@ -97,16 +100,29 @@ export const RegisterPage = () => {
           <Grid
             container
             spacing={2} sx={{ mb: 2, mt: 1 }}>
+
+            <Grid item xs={12}
+            display={!!errorMessage ? '' : 'none'}
+            >
+             <Alert severity='error'>{errorMessage}</Alert>
+            </Grid>
+
+          </Grid>
+
+
+
+          <Grid
+            container
+            spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12}>
               <Button
+                disable={isCheckingAuthentication}
                 type='submit'
                 variant='contained'
                 fullWidth>
                 Crear Cuenta
               </Button>
             </Grid>
-
-
           </Grid>
 
 
