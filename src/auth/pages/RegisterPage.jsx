@@ -49,7 +49,8 @@ export const RegisterPage = () => {
   return (
     <AuthLayout title='Regístrate' >
 
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}
+      className='animate__animated animate__fadeInUp'>
 
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
@@ -113,7 +114,7 @@ export const RegisterPage = () => {
 
           <Grid
             container
-            spacing={2} sx={{ mb: 2, mt: 1 }}>
+            spacing={2} sx={{ mb: 2 }}>
             <Grid item xs={12}>
               <Button
                 disable={isCheckingAuthentication}

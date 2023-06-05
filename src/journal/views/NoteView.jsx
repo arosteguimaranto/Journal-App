@@ -26,6 +26,7 @@ export const NoteView = () => {
                     placeholder="Ingrese un titulo"
                     label="Titulo"
                     sx={{ border: 'none', mb: 1 }}
+                    className='animate__animated animate__slideInLeft'
                 />
                 <TextField
                     type="text"
