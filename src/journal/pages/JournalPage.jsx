@@ -12,7 +12,7 @@ import { startNewNote } from "../../store/journal/thunks"
 export const JournalPage = () => {
 
   const dispatch = useDispatch();
-  const{isSaving} = useSelector(state => state.journal)
+  const { isSaving} = useSelector(state => state.journal);
 
   const onClickNewNote = () =>{
     dispatch(startNewNote());
@@ -29,7 +29,7 @@ export const JournalPage = () => {
    
     onClick={onClickNewNote}
     size='large'
-    disabled={isSaving}
+    disabled={ isSaving }
     sx={{
       color: 'white',
       backgroundColor: 'error.main',
