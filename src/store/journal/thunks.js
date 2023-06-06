@@ -5,6 +5,7 @@ import { addNewEmptyNote, savingNewNote, setActiveNote,  } from "./journalSlice"
 export const startNewNote = () => {
     return async (dispatch, getState) => {
 
+        dispatch(savingNewNote());
         //Todo: tarea dispatch de una nueva accion que cambie el estado
         //todo crear el reducer
 
