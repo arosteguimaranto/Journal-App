@@ -1,11 +1,15 @@
 import { collection, doc, setDoc } from "firebase/firestore/lite";
 import { FireBaseDB } from "../../firebase/config";
+import { addNewEmptyNote, savingNewNote, setActiveNote,  } from "./journalSlice";
 
 export const startNewNote = () => {
     return async (dispatch, getState) => {
 
+        //Todo: tarea dispatch de una nueva accion que cambie el estado
+        //todo crear el reducer
+
+
          const {uid}= getState().auth;
-        // uid
 
         const newNote = {
             title: '',
@@ -14,12 +18,15 @@ export const startNewNote = () => {
         }
 
         const newDoc = doc(collection(FireBaseDB,`${uid}/journal/notes`));
-        const setDocResp = await setDoc(newDoc, newNote);
+        await setDoc(newDoc, newNote);
         
-        console.log({newDoc, setDocResp});
+        newNote.id = newDoc.id 
+
+      
 
         //dispatch
-        //dispatch( newNote)
-        //dispatch(activarNote)
+        dispatch( addNewEmptyNote(newNote));
+        dispatch(setActiveNote(newNote));
+        dispatch(savingNewNote(newNote));
     }
 }
