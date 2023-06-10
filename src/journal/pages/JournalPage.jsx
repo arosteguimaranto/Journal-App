@@ -12,36 +12,41 @@ import { startNewNote } from "../../store/journal/thunks"
 export const JournalPage = () => {
 
   const dispatch = useDispatch();
-  const { isSaving} = useSelector(state => state.journal);
+  const { isSaving, active } = useSelector(state => state.journal);
 
-  const onClickNewNote = () =>{
+  const onClickNewNote = () => {
     dispatch(startNewNote());
   }
 
   return (
     <JournalLayout>
-      {<NothingSelectedView/>}
+      
+      {
+        (!!active)
+        ?<NoteView/>
+        : <NothingSelectedView/>
 
-    {/*<NoteView />*/}  
+       }
+      {/*<NoteView />*/}
 
 
-    <IconButton
-   
-    onClick={onClickNewNote}
-    size='large'
-    disabled={ isSaving }
-    sx={{
-      color: 'white',
-      backgroundColor: 'error.main',
-      ':hover': {backgroundColor: 'error.main', opacity: 0.9},
-      position: 'fixed',
-      right: 50,
-      bottom: 50
-    }}
-    >
+      <IconButton
 
-    <AddOutlined sx={{fontSize: 30}}/>
-    </IconButton>
+        onClick={onClickNewNote}
+        size='large'
+        disabled={isSaving}
+        sx={{
+          color: 'white',
+          backgroundColor: 'error.main',
+          ':hover': { backgroundColor: 'error.main', opacity: 0.9 },
+          position: 'fixed',
+          right: 50,
+          bottom: 50
+        }}
+      >
+
+        <AddOutlined sx={{ fontSize: 30 }} />
+      </IconButton>
     </JournalLayout>
 
   )
