@@ -6,7 +6,7 @@ import { ImageGallery } from '../components/ImageGallery'
 import { useForm } from '../../hooks/useForm'
 import { useMemo } from 'react'
 import { setActiveNote } from '../../store/journal/journalSlice'
-import { startSaveNote } from '../../store/journal/thunks'
+import { startSaveNote, startUpLoadingFiles } from '../../store/journal/thunks'
 import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.css'
 
@@ -49,7 +49,7 @@ export const NoteView = () => {
         if (target.file === 0) return;
         console.log('Subiendo archivos')
 
-        //dispatch(startUpLoadingFiles(target.files))
+        dispatch(startUpLoadingFiles(target.files))
     }
 
 
