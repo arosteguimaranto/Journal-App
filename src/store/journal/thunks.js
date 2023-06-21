@@ -15,10 +15,11 @@ export const startNewNote = () => {
         const { uid } = getState().auth;
 
         const newNote = {
-            title: '',
-            body: '',
-            date: new Date().getTime(),
-        }
+            title: "",
+            body: "",
+            imageUrls: [],
+            date: new Date().getTime()
+        };
 
         const newDoc = doc(collection(FireBaseDB, `${uid}/journal/notes`));
         await setDoc(newDoc, newNote);
@@ -56,7 +57,7 @@ export const startSaveNote = () => {
         const noteToFireStore = { ...note };
         delete noteToFireStore.id;
 
-        console.log(noteToFireStore);
+       
 
         const docRef = doc(FireBaseDB, `${uid}/journal/notes/${note.id}`);
         await setDoc(docRef, noteToFireStore, { merge: true });
